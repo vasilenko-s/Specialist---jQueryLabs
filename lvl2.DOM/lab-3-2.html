@@ -1,0 +1,35 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Таблица умножения</title>
+<style type="text/css">
+td{padding:10px;border:1px solid #369;}
+</style>
+
+</head>
+<body>
+<a href="javascript:createDOM();">Создать таблицу с помощью методов DOM</a><br>
+<div id="d"></div>
+</body>
+<script type="text/javascript">
+    var cell = 10;
+    var row = 10;
+
+    function createDOM() {
+        /* Создайте в элементе div таблицу с помощью методов DOM */
+        let t, tb, tr, td, d = document.getElementById("d");
+
+        d.innerHTML = "";
+        t = d.appendChild(document.createElement('table'));
+        tb = t.appendChild(document.createElement('tbody'));
+        for (let i = 1; i<=row; i++) {
+            tr = tb.appendChild(document.createElement('tr'));
+            for (let j = 1; j<=cell; j++) {
+                td = tr.appendChild(document.createElement('td'));
+                td.appendChild(document.createTextNode(i*j));
+            }
+        }
+    }
+</script>
+</html>
